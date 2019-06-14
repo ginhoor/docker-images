@@ -23,10 +23,10 @@ container_name="ginhoor/py3-scrapyd"
 targetNum=$1
 
 if [ "$targetNum" = "1" ]; then
-    docker run -d -p 8050:8050 --memory=6G --restart=always $container_name
+    docker run -d -p 6800:68000 --memory=2G --restart=always $container_name
     echo "run "$container_name
 elif [ "$targetNum" = "2" ] ; then
-    docker run -it -p 6800:6800 --memory=2G ginhoor/py3-scrapyd
+    docker run -it -p 6800:6800 --memory=2G $container_name
     echo "run "$container_name
 elif [ "$targetNum" = "3" ] ; then
 
