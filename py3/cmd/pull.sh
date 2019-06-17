@@ -14,8 +14,8 @@ elif [ "$target_num" = "3" ] ; then
     echo "pull "$image_name"TaobaoScrapy"    
 else
     echo "*** 提示:"
-    echo "*** 拉取"$image_name"latest:\n\t"${0##*/}" 1"
-    echo "*** 拉取"$image_name"TaobaoScrapy:\n\t"${0##*/}" 1"
-    echo "*** 拉取"$image_name"TaobaoScrapy:\n\t"${0##*/}" 1"
+    echo "*** 拉取"$image_name": latest:\n\t"${0##*/}" 1"
+    echo "*** 拉取"$image_name": TaobaoScrapy:\n\t"${0##*/}" 2"
+    echo "*** 拉取"$image_name": TaobaoScrapy:\n\t"${0##*/}" 3"
     exit 1
 fi
