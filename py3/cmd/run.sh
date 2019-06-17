@@ -18,17 +18,16 @@ function get_container_id()
     done
 }
 
-container_name="ginhoor/py3-scrapyd"
+container_name="ginhoor/py3"
 
-targetNum=$1
-
-if [ "$targetNum" = "1" ]; then
-    docker run -d -p 6800:6800 --memory=2G --restart=always $container_name
+target_num=$1
+if [ "$target_num" = "1" ]; then
+    docker run -d --memory=2G --restart=always --cpu-count=4 $container_name
     echo "run "$container_name
-elif [ "$targetNum" = "2" ] ; then
-    docker run -it -p 6800:6800 --memory=2G $container_name
+elif [ "$target_num" = "2" ] ; then
+    docker run -it --memory=2G $container_name
     echo "run "$container_name
-elif [ "$targetNum" = "3" ] ; then
+elif [ "$target_num" = "3" ] ; then
 
     get_container_id $container_name
     if [ -z "$container_id" ]
@@ -38,7 +37,7 @@ elif [ "$targetNum" = "3" ] ; then
         docker rm -f $container_id
         echo "stop "$container_name $container_id
     fi
-elif [ "$targetNum" = "4" ] ; then
+elif [ "$target_num" = "4" ] ; then
     get_container_id $container_name
     if [ -z "$container_id" ]
     then

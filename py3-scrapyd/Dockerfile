@@ -6,6 +6,7 @@ FROM centos
 MAINTAINER Ginhoor <ginhoor@gmail.com>
 
 COPY src ./
+
 RUN yum -y install gcc automake autoconf libtool make git vim yum-utils \
     && yum-builddep python -y \
     && tar xf Python-3.7.3.tgz \
