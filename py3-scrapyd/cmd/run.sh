@@ -23,7 +23,7 @@ port_num=6800
 
 target_num=$1
 if [ "$target_num" = "1" ]; then
-    docker run -d -p $port_num:$port_num --memory=2G --restart=always $container_name
+    docker run -d -p $port_num:$port_num --memory=2G --restart=always $container_name –-name=$container_name
     echo "run "$container_name
 elif [ "$target_num" = "2" ] ; then
     docker run -it -p $port_num:$port_num --memory=2G $container_name
