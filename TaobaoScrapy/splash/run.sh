@@ -30,7 +30,7 @@ target_num=$1
 # 判读用户是否有输入
 # if [ -n "$target_num" ] ; then
 if [ "$target_num" = "1" ]; then
-    docker run -d -p 8050:8050 --memory=2G --restart=always $container_name --maxrss 1800 –-name=$container_name
+    docker run -d -p 8050:8050 --memory=2G --restart=always $container_name –-name=$container_name
     echo "start "$container_name
 elif [ "$target_num" = "2" ] ; then
 
@@ -53,8 +53,8 @@ elif [ "$target_num" = "3" ] ; then
     fi   
 else
     echo "*** 提示:"
-    echo "*** 运行"$container_name":\n\t"${0##*/}" 1"
-    echo "*** 关闭"$container_name":\n\t"${0##*/}" 2"
+    echo "*** 创建"$container_name":\n\t"${0##*/}" 1"
+    echo "*** 删除"$container_name":\n\t"${0##*/}" 2"
     echo "*** 重启"$container_name":\n\t"${0##*/}" 3"
     exit 1
 fi

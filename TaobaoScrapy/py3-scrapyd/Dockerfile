@@ -16,6 +16,10 @@ RUN yum -y install gcc automake autoconf libtool make git vim yum-utils \
     && make install \
     && cd .. \
     && pip3 install -r requirements.txt \
-    && mkdir /Project \
-    && cd /Project
-    # && git clone https://ginhoor%40gmail.com:Shaojunhua1015**@github.com/ginhoor/TaobaoScrapy.git/
+    && mkdir /Scrapyd \
+    && cd /Scrapyd \
+    && cp /scrapyd.conf /Scrapyd
+
+WORKDIR /Scrapyd
+CMD cd /Scrapyd && rm -rf twistd.pid && scrapyd
+

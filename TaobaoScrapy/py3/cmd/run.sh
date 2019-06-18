@@ -18,14 +18,14 @@ function get_container_id()
     done
 }
 
-image_name="ginhoor/py3:TaobaoScrapy"
+image_name="ginhoor/py3"
 
 target_num=$1
 if [ "$target_num" = "1" ]; then
-    docker run -d --memory=2G --restart=always --cpu-count=4 $image_name
+    docker run -d --memory=2G --oom-kill-disable $image_name
     echo "run "$image_name
 elif [ "$target_num" = "2" ] ; then
-    docker run -it --memory=2G $image_name
+    docker run -it --memory=2G --oom-kill-disable $image_name
     echo "run "$image_name
 elif [ "$target_num" = "3" ] ; then
 
@@ -48,9 +48,9 @@ elif [ "$target_num" = "4" ] ; then
     fi   
 else
     echo "*** 提示:"
-    echo "*** 后台运行"$image_name":\n\t"${0##*/}" 1"
-    echo "*** 前台运行"$image_name":\n\t"${0##*/}" 2"
-    echo "*** 关闭"$image_name":\n\t"${0##*/}" 3"
+    echo "*** 后台创建"$image_name":\n\t"${0##*/}" 1"
+    echo "*** 前台创建"$image_name":\n\t"${0##*/}" 2"
+    echo "*** 删除"$image_name":\n\t"${0##*/}" 3"
     echo "*** 重启"$image_name":\n\t"${0##*/}" 4"
     exit 1
 fi

@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  spider:
+    container_name: taobao_spider
+    image: "ginhoor/py3"
+    volumes:
+     - .:~/Server/Workspace
+  scrapyd:
+    container_name: scrapyd
+    image: "ginhoor/py3-scrapyd"
+
+  splash: 
+    container_name: splash
+    image: "scrapinghub/splash"
+    

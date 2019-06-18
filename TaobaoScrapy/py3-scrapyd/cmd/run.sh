@@ -23,10 +23,10 @@ port_num=6800
 
 target_num=$1
 if [ "$target_num" = "1" ]; then
-    docker run -d -p $port_num:$port_num --memory=2G --restart=always $container_name
+    docker run -d -p $port_num:$port_num --memory=2G --restart=always --oom-kill-disable $container_name
     echo "run "$container_name
 elif [ "$target_num" = "2" ] ; then
-    docker run -it -p $port_num:$port_num --memory=2G $container_name
+    docker run -it -p $port_num:$port_num --memory=2G --restart=always --oom-kill-disable $container_name
     echo "run "$container_name
 elif [ "$target_num" = "3" ] ; then
 
@@ -49,9 +49,9 @@ elif [ "$target_num" = "4" ] ; then
     fi   
 else
     echo "*** 提示:"
-    echo "*** 后台运行"$container_name":\n\t"${0##*/}" 1"
-    echo "*** 前台运行"$container_name":\n\t"${0##*/}" 2"
-    echo "*** 关闭"$container_name":\n\t"${0##*/}" 3"
+    echo "*** 后台创建"$container_name":\n\t"${0##*/}" 1"
+    echo "*** 前台创建"$container_name":\n\t"${0##*/}" 2"
+    echo "*** 删除"$container_name":\n\t"${0##*/}" 3"
     echo "*** 重启"$container_name":\n\t"${0##*/}" 4"
     exit 1
 fi
