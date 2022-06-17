@@ -2,7 +2,7 @@ Twisted==18.9.0
 scrapyd==1.2.0
 scrapyd-client==1.1.0
 openpyxl==2.6.2
-Scrapy==1.6.0
+Scrapy==2.6.1
 setuptools==40.8.0
 qiniu==7.2.4
 APScheduler==3.6.0
